@@ -1,6 +1,10 @@
 pipeline {
     agent any
     stages {
+        if (Branches == 'main') {
+                echo 'Desa'
+        }
+        else{
         stage('Build') {
             steps {
                 echo 'Build completed testing2'
@@ -16,6 +20,7 @@ pipeline {
                 echo 'Deploy completed testing2'
             }
         }
+    }
     }
 
 }
