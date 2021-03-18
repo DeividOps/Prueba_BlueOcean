@@ -3,12 +3,19 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Test completed testing'
+                script {
+                    switch(env.BRANCH_NAME){
+                        case 'main':
+                            echo 'la rama es main'
+                        case 'testing'
+                            echo 'la rama es main'
+                    }
+                }
             }
         }
         stage('Test') {
             steps {
-                echo "${BRANCH_NAME}"
+                echo 'Test completed testing'
             }
         }
         stage('Deploy') {
