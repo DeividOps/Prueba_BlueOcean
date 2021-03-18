@@ -30,7 +30,7 @@ pipeline {
     }
     
     environment { 
-        test = ['uno', 'dos']
+        test = "uno,dos,tres"
     
     }
 
