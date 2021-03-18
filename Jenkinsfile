@@ -6,7 +6,7 @@ pipeline {
                 script {
                     switch(env.BRANCH_NAME){
                         case 'testing':
-                            echo 'la rama es main'
+                            echo 'la rama es testing'
                         case 'main':
                             echo 'la rama es main'
                     }
