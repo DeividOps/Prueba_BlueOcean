@@ -14,6 +14,9 @@ pipeline {
                             break
                         case 'main':
                             echo 'la rama es main'
+                            env.dev.tokenize(",").each { server ->
+                            echo "Server is $server"
+                            }
                             break
                     }
                 }
@@ -32,7 +35,8 @@ pipeline {
     }
     
     environment { 
-        test = "uno,dos,tres"
+        test = "d250lxcmite02,d250lxcmite01,"
+        dev = "d250lxcde61,d250lxcde62"
     
     }
 
