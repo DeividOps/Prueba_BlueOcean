@@ -1,26 +1,24 @@
 pipeline {
     agent any
     stages {
-        if (Branches == 'main') {
-                echo 'Desa'
-        }
-        else{
         stage('Build') {
             steps {
-                echo 'Build completed testing2'
+                script {
+                    echo 'Test completed testing'{env.BRANCH_NAME}
+                }               
             }
         }
         stage('Test') {
             steps {
-                echo 'Test completed testing2'
+                echo 'Test completed testing'
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploy completed testing2'
+                echo 'Deploy completed testing'
             }
         }
     }
-    }
+    
 
 }
