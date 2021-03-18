@@ -30,9 +30,8 @@ pipeline {
     }
     
     environment { 
-        srv_test = (N1; N2)
-        N1 = 'alfa'
-        N2 = 'Beta'
+        String[] srv_test = ["uno", "dos"]
+    
     }
 
 }
