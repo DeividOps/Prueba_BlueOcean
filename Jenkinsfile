@@ -3,9 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                script {
-                    echo 'Test completed testing'{env.BRANCH_NAME}
-                }               
+                echo 'Test completed testing'
             }
         }
         stage('Test') {
