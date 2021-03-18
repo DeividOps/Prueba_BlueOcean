@@ -7,6 +7,8 @@ pipeline {
                     switch(env.BRANCH_NAME){
                         case 'testing':
                             echo 'la rama es testing'
+                            for (int i=0; i < srv_test; i++)
+                            echo '' + srv_test[i]
                             break
                         case 'main':
                             echo 'la rama es main'
@@ -27,5 +29,8 @@ pipeline {
         }
     }
     
+    enviroment {
+        srv_test = ('N1', 'N2', 'N3')
+    }
 
 }
