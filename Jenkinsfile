@@ -1,7 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage()
         stage('Build') {
             steps {
                 script {
@@ -31,7 +30,7 @@ pipeline {
     }
     
     environment { 
-        srv_test = ['N1', 'N2']
+        srv_test = ('N1', 'N2')
         N1 = 'alfa'
         N2 = 'Beta'
     }
