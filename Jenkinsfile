@@ -30,7 +30,7 @@ pipeline {
     }
     
     enviroment {
-        srv_test = ('N1', 'N2', 'N3')
+        srv_test = ['N1', 'N2', 'N3']
     }
 
 }
