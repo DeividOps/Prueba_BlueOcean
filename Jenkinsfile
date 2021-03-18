@@ -7,8 +7,10 @@ pipeline {
                     switch(env.BRANCH_NAME){
                         case 'testing':
                             echo 'la rama es testing'
-                            for (int i=0; i < test; i++)
-                            echo '' + test[i]
+                            env.test.tokenize(",").each { server ->
+                            echo "Server is $server"
+
+                            }
                             break
                         case 'main':
                             echo 'la rama es main'
