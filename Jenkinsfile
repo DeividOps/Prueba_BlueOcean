@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Test completed testing'
+                echo "${BRANCH_NAME}"
             }
         }
         stage('Deploy') {
