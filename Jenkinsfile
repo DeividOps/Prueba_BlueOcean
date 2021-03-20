@@ -19,6 +19,13 @@ pipeline {
                             }
                             break
                     }
+
+                    if (env == test){
+                        echo 'Test'
+                    }
+                    else (env == dev){
+                        echo 'dev'
+                    }
                 }
             }
         }
