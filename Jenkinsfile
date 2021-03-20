@@ -3,7 +3,23 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Build completed testing'
+                script {
+                    switch(env.BRANCH_NAME){
+                        case 'testing':
+                            echo 'la rama es testing'
+                            env.test.tokenize(",").each { server ->
+                            echo "Server is $server"
+
+                            }
+                            break
+                        case 'main':
+                            echo 'la rama es main'
+                            env.dev.tokenize(",").each { server ->
+                            echo "Server is $server"
+                            }
+                            break
+                    }
+                }
             }
         }
         stage('Test') {
@@ -16,6 +32,12 @@ pipeline {
                 echo 'Deploy completed testing'
             }
         }
+    }
+    
+    environment { 
+        test = "d250lxcmite02,d250lxcmite01,"
+        dev = "d250lxcde61,d250lxcde62"
+    
     }
 
 }
