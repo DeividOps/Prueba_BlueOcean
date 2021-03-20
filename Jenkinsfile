@@ -30,8 +30,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    if (env.test){
-                        echo 'Test'
+                    if (env.test){ 
+                        echo "Test are $server"
+                        
                     }
                 }
             }
