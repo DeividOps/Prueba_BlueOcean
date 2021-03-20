@@ -31,8 +31,7 @@ pipeline {
             steps {
                 script {
                     if (env.test){ 
-                        echo "Test are $server"
-                        
+                        echo 'Test'
                     }
                 }
             }
