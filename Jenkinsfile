@@ -19,14 +19,6 @@ pipeline {
                             }
                             break
                     }
-                script {
-                    if (env == test){
-                        echo 'Test'
-                    }
-                    else (env == dev){
-                        echo 'dev'
-                    }
-                }
                 }
             }
         }
@@ -37,7 +29,11 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploy completed testing'
+                script {
+                    if (env.BRANCH_NAME == test){
+                        echo 'Test'
+                    }
+                }
             }
         }
     }
