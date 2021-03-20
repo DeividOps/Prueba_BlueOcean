@@ -30,7 +30,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    if (env.BRANCH_NAME == test){
+                    if (env.test){
                         echo 'Test'
                     }
                 }
