@@ -30,13 +30,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    if (env.test){ 
-                        echo 'Test'
+                    env.BRANCH_NAME.each { server ->
+                    echo "Server is $server"
                     }
-                    else (env.main){ 
-                        echo 'main'
-                    }
-
                 }
             }
         }
