@@ -33,7 +33,7 @@ pipeline {
                     if (env.test){ 
                         echo 'Test'
                     }
-                    else(env.main){ 
+                    else (env.main){ 
                         echo 'main'
                     }
 
