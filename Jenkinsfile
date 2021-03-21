@@ -11,7 +11,7 @@ pipeline {
                             break
                         case 'main':
                             echo 'la rama es main'
-                            env.dev.tokenize(",").each { server ->
+                            var = env.dev.tokenize(",").each { server ->
                             echo "Server is $server"
                             }
                             break
