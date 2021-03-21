@@ -8,7 +8,6 @@ pipeline {
                         case 'testing':
                             echo 'la rama es testing'
                             var = env.test.tokenize(",") 
-                            }
                             break
                         case 'main':
                             echo 'la rama es main'
