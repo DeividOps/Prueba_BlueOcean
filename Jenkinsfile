@@ -8,7 +8,8 @@ pipeline {
                         case 'testing':
                             echo 'la rama es testing'
                             env.test.tokenize(",").each { server ->
-                            echo "Server is $server"
+                            echo "Server is $server" == VAR
+
 
                             }
                             break
@@ -30,7 +31,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                        echo "Server is $server"
+                        echo "Server is $VAR"
                     }
                 }
             }
