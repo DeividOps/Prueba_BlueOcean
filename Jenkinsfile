@@ -27,9 +27,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 script { 
-                    //var.each { server ->
-                    //echo "server are $server"}                          
-                    //    echo "Llego al deploy $var"
                     for (int i = 0; i < var.size(); i++) {
         sh "echo Hello ${var[i]}"
     }
