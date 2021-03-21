@@ -7,8 +7,8 @@ pipeline {
                     switch(env.BRANCH_NAME){
                         case 'testing':
                             echo 'la rama es testing'
-                            env.test.tokenize(",").each { server ->
-                            echo "Server is $server" == VAR
+                            var = env.test.tokenize(",").each { server ->
+                            echo "Server is $server" 
 
 
                             }
@@ -31,7 +31,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                        echo "Server is $VAR"
+                        echo 'Llego al deploy'
                     }
                 }
             }
