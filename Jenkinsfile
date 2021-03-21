@@ -31,7 +31,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                        echo 'Llego al deploy'
+                        echo "Llego al deploy $var"
                     }
                 }
             }
