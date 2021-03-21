@@ -28,7 +28,7 @@ pipeline {
             steps {
                 script { 
                     for (int i = 0; i < var.size(); i++) {
-        sh "echo Hello ${var[i]}"
+        sh "echo Hello ${var}"
     }
                     }
                 }
