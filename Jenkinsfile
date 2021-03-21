@@ -29,9 +29,9 @@ pipeline {
                 script { 
                     //var.each { server ->
                     //echo "server are $server"} 
-                    var2 = ['a', 'b', 'c']
-                    for (int i = 0; i < var2.size(); i++) {
-        sh "echo Hello ${var2[i]}"
+                    //var2 = ['a', 'b', 'c']
+                    for (int i = 0; i < var.size(); i++) {
+        sh "echo Hello ${var[i]}"
     }
                     }
                 }
