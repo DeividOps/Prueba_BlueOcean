@@ -7,14 +7,11 @@ pipeline {
                     switch(env.BRANCH_NAME){
                         case 'testing':
                             echo 'la rama es testing'
-                            env.test.tokenize(",").each { server ->
-                            echo "Server is $server"
-
-                            }
+                            var = env.test.tokenize(",") 
                             break
                         case 'main':
                             echo 'la rama es main'
-                            env.dev.tokenize(",").each { server ->
+                            var = env.dev.tokenize(",").each { server ->
                             echo "Server is $server"
                             }
                             break
@@ -29,13 +26,21 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploy completed testing'
+                script { 
+                    //var.each { server ->
+                    //echo "server are $server"} 
+                    //var2 = ['a', 'b', 'c']
+                    for (int i = 0; i < var.size(); i++) {
+        sh "echo Hello ${var[i]}"
+    }
+                    }
+                }
             }
         }
-    }
+    
     
     environment { 
-        test = "d250lxcmite02,d250lxcmite01,"
+        test = "d250lxcmite02,d250lxcmite01"
         dev = "d250lxcde61,d250lxcde62"
     
     }
