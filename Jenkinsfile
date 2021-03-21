@@ -27,8 +27,10 @@ pipeline {
         stage('Deploy') {
             steps {
                 script { 
-                    for (int i = 0; i < var.size(); i++) {
-        sh "echo Hello ${var[i]}"
+                    var.each { server ->
+                    echo "server are $server"} 
+                    for (int i = 0; i < server.size(); i++) {
+        sh "echo Hello ${server[i]}"
     }
                     }
                 }
