@@ -28,7 +28,7 @@ pipeline {
             steps {
                 script { 
                     for (int i = 0; i < var.size(); i++) {
-        sh "echo Hello ${var}"
+        sh "echo Hello ${var[i]}"
     }
                     }
                 }
@@ -37,7 +37,7 @@ pipeline {
     
     
     environment { 
-        test = "d250lxcmite02,d250lxcmite01,"
+        test = "d250lxcmite02,d250lxcmite01"
         dev = "d250lxcde61,d250lxcde62"
     
     }
