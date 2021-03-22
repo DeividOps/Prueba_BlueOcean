@@ -11,9 +11,7 @@ pipeline {
                             break
                         case 'main':
                             echo 'la rama es main'
-                            var = env.dev.tokenize(",").each { server ->
-                            echo "Server is $server"
-                            }
+                            var = env.dev.tokenize(",")
                             break
                     }
                 }
@@ -27,9 +25,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 script { 
-                    //var.each { server ->
-                    //echo "server are $server"} 
-                    //var2 = ['a', 'b', 'c']
                     for (int i = 0; i < var.size(); i++) {
         sh "echo Hello ${var[i]}"
     }
@@ -41,7 +36,7 @@ pipeline {
     
     environment { 
         test = "d250lxcmite02,d250lxcmite01"
-        dev = "d250lxcde61,d250lxcde62"
+        dev = "d250lxcde61,d250lxcde62,d250lxcde63"
     
     }
 
