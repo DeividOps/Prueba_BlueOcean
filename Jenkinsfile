@@ -33,17 +33,17 @@ pipeline {
                     }
                 }
             }
-            catch (e) {
+            } catch (e) {
                 //fail the deploy
                 currentBuild.result = "FAILED"
                 trow e
-            }finally {
+            } finally {
         // Post build steps here
         /* Success or failure, always run post build steps */
         // send email
         // publish test results etc etc
     }
-        }
+    
     
         }
     environment { 
