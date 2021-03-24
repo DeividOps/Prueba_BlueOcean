@@ -25,13 +25,12 @@ pipeline {
         stage('Deploy') {
             steps {
                 script { 
-                    for (int i = 0; i < var.size(); i++) {
-        sh "echo Hello ${var[i]}"
-    }
+                echo 'Deploy completed'
+            }
             if ( buildResult == "SUCCESS" ) {
             slackSend color: "good", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was successful"
             }
-            else if( buildResult == "FAILURE" ) { 
+            else ( buildResult == "FAILURE" ) { 
             slackSend color: "danger", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was failed"
             }
                     }
