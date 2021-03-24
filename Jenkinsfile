@@ -3,36 +3,36 @@ pipeline {
     stages {
         node { 
             try {
-        stage('Build') {
-            steps {
-                script {
-                    switch(env.BRANCH_NAME){
-                        case 'testing':
-                            echo 'la rama es testing'
-                            var = env.test.tokenize(",") 
-                            break
-                        case 'main':
-                            echo 'la rama es main'
-                            var = env.dev.tokenize(",")
-                            break
+                stage('Build') {
+                    steps {
+                        script {
+                            switch(env.BRANCH_NAME){
+                                case 'testing':
+                                    echo 'la rama es testing'
+                                    var = env.test.tokenize(",") 
+                                    break
+                                case 'main':
+                                    echo 'la rama es main'
+                                    var = env.dev.tokenize(",")
+                                    break
+                            }
+                        }
                     }
                 }
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Test completed testing'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                script { 
-                    for (int i = 0; i < var.size(); i++) {
-        sh "echo Hello ${var[i]}"
-    }
+                stage('Test') {
+                    steps {
+                        echo 'Test completed testing'
                     }
                 }
+                stage('Deploy') {
+                    steps {
+                        script { 
+                            for (int i = 0; i < var.size(); i++) {
+                sh "echo Hello ${var[i]}"
             }
+                            }
+                        }
+                    }
             } catch (e) {
                 //fail the deploy
                 currentBuild.result = "FAILED"
