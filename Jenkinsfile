@@ -45,13 +45,13 @@ pipeline {
     }
     
     
-        }
+        
     environment { 
         test = "d250lxcmite02,d250lxcmite01"
         dev = "d250lxcde61,d250lxcde62,d250lxcde63"
     
-    }
+        }
 
-    
+    }
 
 }
