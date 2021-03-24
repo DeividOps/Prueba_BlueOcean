@@ -51,7 +51,9 @@ pipeline {
         dev = "d250lxcde61,d250lxcde62,d250lxcde63"
     
         }
-
+    
     }
+
+}
 
 }
