@@ -24,7 +24,6 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                script { 
                 echo 'Deploy completed'
             }
             if ( buildResult == "SUCCESS" ) {
@@ -33,12 +32,8 @@ pipeline {
             else ( buildResult == "FAILURE" ) { 
             slackSend color: "danger", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was failed"
             }
-                    }
-                }
-            }
         }
-    
-        
+    }
     
     
     environment { 
