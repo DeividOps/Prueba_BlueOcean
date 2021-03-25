@@ -35,7 +35,7 @@ pipeline {
             
             }
         }
-    
+    }
     
     environment { 
         test = "d250lxcmite02,d250lxcmite01"
