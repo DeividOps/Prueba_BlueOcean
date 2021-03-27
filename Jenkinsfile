@@ -44,7 +44,7 @@ pipeline {
             slackSend color: "danger", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was failed"
         }
         success {
-            slackSend color: "good", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was successful"
+            slackSend color: "good", message: "El despliegue en el ambiente de ${env.JOB_NAME} Con número de Build: ${env.BUILD_NUMBER} Se realizo correctamente"
         }
     } 
     
