@@ -20,7 +20,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploy completed testing'
-                ll
+                
             }
         }
         
@@ -39,10 +39,10 @@ pipeline {
         }*/
     }
     post {
-            success {
+            failure {
                 slackSend color: "good", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was successful"
             }
-            failure {
+            success {
                 slackSend color: "danger", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was failed"
             }
         }
