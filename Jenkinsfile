@@ -17,12 +17,17 @@ pipeline {
                 }
             }
         }
-        stage('Test') {
+        stage('Deploy') {
             steps {
-                echo 'Test completed testing'
+                echo 'Deploy completed testing'
             }
         }
-        stage('Deploy') {
+        post {
+            Success {
+                slackSend color: "good", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was successful"
+            }
+        }
+        /*stage('Deploy') {
             steps {
                 script { 
                     if ( stage.Test == Success ) {
@@ -34,7 +39,7 @@ pipeline {
                 }
             
             }
-        }
+        }*/
     }
     
     environment { 
