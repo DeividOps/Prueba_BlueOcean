@@ -38,8 +38,11 @@ pipeline {
         }*/
     }
     post {
-            always {
+            Success {
                 slackSend color: "good", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was successful"
+            }
+            Failed {
+                slackSend color: "danger", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was failed"
             }
         }
     
