@@ -20,7 +20,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploy completed testing'
-                l
+                
                 
             }
         }
@@ -39,6 +39,14 @@ pipeline {
             }
         }*/
     }
+    post {
+        failure {
+            slackSend color: "danger", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was failed"
+        }
+        success {
+            slackSend color: "good", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was successful"
+        }
+    } 
     
     
     environment { 
@@ -46,15 +54,7 @@ pipeline {
         dev = "d250lxcde61,d250lxcde62,d250lxcde63"
         
     
-    }
-post {
-    failure {
-        slackSend color: "danger", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was failed"
-    }
-    success {
-        slackSend color: "good", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was successful"
-    }
-}    
+    }   
     
 
 }
