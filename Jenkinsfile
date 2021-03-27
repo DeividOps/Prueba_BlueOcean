@@ -25,7 +25,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script { 
-                    if ( stage.Deploy == Success ) {
+                    if ( stage.Test == Success ) {
                         slackSend color: "good", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was successful"
                     }
                     else { 
