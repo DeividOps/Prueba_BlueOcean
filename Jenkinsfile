@@ -10,7 +10,7 @@ pipeline {
                             var = env.test.tokenize(",") 
                             break
                         case 'main':
-                            echo 'la rama es main'
+                            echo 'la rama es testing'
                             var = env.dev.tokenize(",")
                             break
                     }
@@ -20,7 +20,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploy completed testing'
-                k
+                
                 
             }
         }
