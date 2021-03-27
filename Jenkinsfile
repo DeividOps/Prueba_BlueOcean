@@ -44,7 +44,7 @@ pipeline {
             slackSend color: "danger", message: "El despliegue en el ambiente de ${env.JOB_NAME} Con numero de Build: ${env.BUILD_NUMBER} Ha fallado"
         }
         success {
-            slackSend color: "good", message: "El despliegue en el ambiente de ${env.JOB_NAME} Con numero de Build: ${env.BUILD_NUMBER} Se realizo correctamente"
+            slackSend color: "good", message: "El despliegue en el ambiente de ${env.JOB_NAME} Con numero de Build: ${env.BUILD_NUMBER} Se realizo correctamente por el usuario: ${env.CHANGE_AUTHOR}"
         }
         aborted {
             slackSend color: "warning", message: "El despliegue en el ambiente de ${env.JOB_NAME} Con numero de Build: ${env.BUILD_NUMBER} Se realizo correctamente"
