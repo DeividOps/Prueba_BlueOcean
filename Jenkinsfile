@@ -22,11 +22,7 @@ pipeline {
                 echo 'Deploy completed testing'
             }
         }
-        post {
-            always {
-                slackSend color: "good", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was successful"
-            }
-        }
+        
         /*stage('Deploy') {
             steps {
                 script { 
@@ -41,6 +37,11 @@ pipeline {
             }
         }*/
     }
+    post {
+            always {
+                slackSend color: "good", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was successful"
+            }
+        }
     
     environment { 
         test = "d250lxcmite02,d250lxcmite01"
