@@ -21,6 +21,9 @@ pipeline {
             steps {
                 echo 'Deploy completed testing'
                 ll
+                failure {
+                slackSend color: "danger", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was failed"
+            }
                 
             }
         }
