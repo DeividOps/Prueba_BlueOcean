@@ -10,7 +10,7 @@ pipeline {
                             var = env.test.tokenize(",") 
                             break
                         case 'main':
-                            echo 'la rama es testing'
+                            echo 'la rama es main'
                             var = env.dev.tokenize(",")
                             break
                     }
@@ -45,6 +45,9 @@ pipeline {
         }
         success {
             slackSend color: "good", message: "El despliegue en el ambiente de ${env.JOB_NAME} Con numero de Build: ${env.BUILD_NUMBER} Se realizo correctamente"
+        }
+        aborted {
+            slackSend color: "warning", message: "El despliegue en el ambiente de ${env.JOB_NAME} Con numero de Build: ${env.BUILD_NUMBER} Se realizo correctamente"
         }
     } 
     
