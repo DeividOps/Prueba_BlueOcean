@@ -24,6 +24,13 @@ pipeline {
                 
             }
         }
+        stage('Test') {
+            steps {
+                echo 'Deploy completed testing'
+                
+                
+            }
+        }
         
         /*stage('Deploy') {
             steps {
